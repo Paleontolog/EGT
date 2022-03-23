@@ -2,4 +2,4 @@
 .idea
 /tests-common/target
 /acceptance-tests/target
-./acceptance-tests/testng.xml
+/acceptance-tests/testng.xml
