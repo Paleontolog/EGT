@@ -31,10 +31,20 @@ public class WebDriverHelper {
         BaseSelenium.getWebDriver().get(siteUrl + pageUrl);
     }
 
+    private static void highLighterMethod(WebElement element) {
+        WebDriver driver = BaseSelenium.getWebDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(
+                "arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');",
+                element
+        );
+    }
+
     public static void click(WebElement webElement) {
         try {
             waitForElementVisible(webElement);
             waitForElementToBeClickable(webElement);
+            highLighterMethod(webElement);
             webElement.click();
         } catch (Exception e) {
             log.error("There is some problem with clicking", e);
@@ -47,6 +57,7 @@ public class WebDriverHelper {
         try {
             waitForElementVisible(webElement);
             waitForElementToBeClickable(webElement);
+            highLighterMethod(webElement);
             webElement.clear();
             webElement.sendKeys(inputText);
         } catch (Exception e) {
@@ -58,6 +69,7 @@ public class WebDriverHelper {
         try {
             waitForElementVisible(webElement);
             waitForElementToBeClickable(webElement);
+            highLighterMethod(webElement);
             webElement.sendKeys(key);
         } catch (Exception e) {
             System.out.println("Exception in 'Send Keys'");
@@ -114,6 +126,7 @@ public class WebDriverHelper {
         WebDriver driver = BaseSelenium.getWebDriver();
         try {
             waitForElementVisible(element);
+            highLighterMethod(element);
             new Actions(driver).moveToElement(element).perform();
         } catch (Exception e) {
             log.error("There is some problem with moving", e);

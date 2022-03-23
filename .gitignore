@@ -1,5 +1,6 @@
 .allure
 .idea
+target
 /tests-common/target
 /acceptance-tests/target
 /acceptance-tests/testng.xml
