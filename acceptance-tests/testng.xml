@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="DNS">
+    <test name="LoggingInTest">
+        <parameter name="login" value=""/>
+        <parameter name="password" value=""/>
+        <parameter name="userName" value=""/>
+        <classes>
+            <class name="com.qa.shop.tests.main.LoggingInTest"/>
+        </classes>
+    </test>
+    <test name="WishListTest">
+        <parameter name="productName" value="AN515-56-552M"/>
+        <classes>
+            <class name="com.qa.shop.tests.favourite.FavouriteTest"/>
+        </classes>
+    </test>
+    <test name="PriceFilterTest">
+        <classes>
+            <class name="com.qa.shop.tests.filters.FiltersTest"/>
+        </classes>
+    </test>
+</suite>
+
