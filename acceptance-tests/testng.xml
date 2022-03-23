@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="DNS">
     <test name="LoggingInTest">
-        <parameter name="login" value=""/>
-        <parameter name="password" value=""/>
-        <parameter name="userName" value=""/>
+        <parameter name="login" value="Naglui.eretick@yandex.ru"/>
+        <parameter name="password" value="123456789a"/>
+        <parameter name="userName" value="Пришелец-EQ76673"/>
         <classes>
             <class name="com.qa.shop.tests.main.LoggingInTest"/>
         </classes>

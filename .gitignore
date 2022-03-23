@@ -3,3 +3,9 @@
 /tests-common/target
 /acceptance-tests/target
 /acceptance-tests/testng.xml
+
+/acceptance-tests/.allure
+/acceptance-tests/allure-results
+
+/tests-common/.allure
+/tests-common/allure-results
