@@ -1,3 +1,4 @@
 .allure
 .idea
-/tests-common/target/*
+/tests-common/target
+/acceptance-tests/target
