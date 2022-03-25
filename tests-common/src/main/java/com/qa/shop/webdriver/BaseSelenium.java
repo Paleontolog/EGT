@@ -30,7 +30,7 @@ public class BaseSelenium {
         options.addArguments("start-fullscreen");
         options.addArguments("disable-infobars");
         options.addArguments("disable-extensions");
-        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         options.addArguments("disable-gpu");
         options.addArguments("disable-dev-shm-usage");
         options.addArguments("no-sandbox");
