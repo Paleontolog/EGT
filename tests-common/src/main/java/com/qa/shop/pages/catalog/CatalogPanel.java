@@ -56,19 +56,17 @@ public class CatalogPanel extends AbstractPageObject {
 
     @FindBy(xpath = "//a[contains(@class, '__page-link_next')]")
     private WebElement btnNextPage;
-
-//
-//    public void findByChain() {
-//        clickChain(container, "Компьютеры", "Ноутбуки", "Игровые");
-//    }
-
+    
     private static Integer parsePrice(String price) {
         String cleanString = onlyNumber.matcher(price).replaceAll("");
         return Integer.parseInt(cleanString);
     }
 
-    private boolean hasNextPage() {
-        return !btnNextPage.getAttribute("class").contains("disabled");
+    private boolean nextPage() {
+        moveToElement(btnNextPage);
+        boolean hasNextPage = !btnNextPage.getAttribute("class").contains("disabled");
+        click(btnNextPage);
+        return hasNextPage;
     }
 
     public void goToNotebooksCatalog() {
@@ -108,9 +106,8 @@ public class CatalogPanel extends AbstractPageObject {
                             .allMatch(checkPrice::apply)
             );
             Assert.assertTrue(allPriceMatched, "Has unmatched price");
-            moveToElement(btnNextPage);
-            click(btnNextPage);
-        } while (hasNextPage());
+
+        } while (nextPage());
     }
 
     @Override
