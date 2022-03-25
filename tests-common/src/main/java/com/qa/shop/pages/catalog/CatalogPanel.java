@@ -14,6 +14,8 @@ import static com.qa.shop.webdriver.WebDriverHelper.*;
 
 public class CatalogPanel extends AbstractPageObject {
 
+    private static final String productNamePattern = ".//a[text() = '%s']";
+
     private static final String containerPath = "//div[@class='menu-desktop']";
 
     private static final String catalogProducts = "//div[contains(@class, 'catalog-products')]";
@@ -30,37 +32,14 @@ public class CatalogPanel extends AbstractPageObject {
     @FindBy(xpath = catalogProducts)
     private WebElement catalog;
 
-
-    @FindBy(xpath = containerPath + "//a[text() = 'Компьютеры']")
-    private WebElement computers;
-
-    @FindBy(xpath = containerPath + "//a[text() = 'Ноутбуки']")
-    private WebElement computersNotebooks;
-
-    @FindBy(xpath = containerPath + "//a[text() = 'Игровые']")
-    private WebElement computersNotebooksGamers;
-
-
-    @FindBy(xpath = containerPath + "//a[text() = 'Смартфоны и гаджеты']")
-    private WebElement smartphones;
-
-    @FindBy(xpath = containerPath + "//a[text() = 'Планшеты']")
-    private WebElement tablets;
-
-    @FindBy(xpath = containerPath + "//a[text() = 'LTE']")
-    private WebElement lteTablets;
-
+    @FindBy(xpath = containerPath)
+    private WebElement productContainer;
 
     @FindBy(xpath = catalogProducts + "//div[@data-id='product']")
     private List<WebElement> products;
 
     @FindBy(xpath = "//a[contains(@class, '__page-link_next')]")
     private WebElement btnNextPage;
-
-//
-//    public void findByChain() {
-//        clickChain(container, "Компьютеры", "Ноутбуки", "Игровые");
-//    }
 
     private static Integer parsePrice(String price) {
         String cleanString = onlyNumber.matcher(price).replaceAll("");
@@ -71,16 +50,23 @@ public class CatalogPanel extends AbstractPageObject {
         return !btnNextPage.getAttribute("class").contains("disabled");
     }
 
+
+    public void moveChainElement(WebElement startElement, String ...chain) {
+        WebElement element = startElement;
+        for (String name : chain) {
+            final String productPath = String.format(productNamePattern, name);
+            element = findElementBy(startElement, By.xpath(productPath));
+            moveToElement(element);
+        }
+        click(element);
+    }
+
     public void goToNotebooksCatalog() {
-        moveToElement(computers);
-        moveToElement(computersNotebooks);
-        click(computersNotebooksGamers);
+        moveChainElement(productContainer, "Компьютеры", "Ноутбуки", "Игровые");
     }
 
     public void goToTablets() {
-        moveToElement(smartphones);
-        moveToElement(tablets);
-        click(lteTablets);
+        moveChainElement(productContainer,"Смартфоны и гаджеты", "Планшеты", "LTE");
     }
 
     public void chooseProduct(String productName) {

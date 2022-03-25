@@ -12,11 +12,16 @@ public class ProductPage extends AbstractPageObject {
 
     private static final String modalWindow = "//div[@class='base-modal__container']//a[text()='Понятно, закрыть']";
 
+    private static final String productCard = "//div[@class = 'product-card-top product-card-top_full']";
+
+    private static final String activeWishListButton = "//button[contains(@class, 'wishlist-btn button-ui_done')]";
+
     @FindBy(xpath = "//h1[@class='product-card-top__title']")
     private WebElement pageTop;
 
-    @FindBy(xpath = "//div[@class = 'product-card-top product-card-top_full']//button[contains(@class, 'wishlist-btn')]")
+    @FindBy(xpath = productCard + "//button[contains(@class, 'wishlist-btn')]")
     private WebElement wishListBtn;
+
 
     @FindBy(xpath = "//*")
     private WebElement mainWindow;
@@ -26,7 +31,8 @@ public class ProductPage extends AbstractPageObject {
         moveToElement(pageTop);
         moveToElement(wishListBtn);
         click(wishListBtn);
-        waitForElementLocated(By.xpath(modalWindow));
+//        waitForElementLocated(By.xpath(modalWindow));
+        waitForElementLocated(By.xpath(activeWishListButton));
         sendKeys(mainWindow, Keys.ESCAPE);
     }
 

@@ -95,12 +95,4 @@ public abstract class AbstractPageObject {
     }
 
 
-    public void clickChain(WebElement startElement, String ...chain) {
-        WebElement element = startElement;
-        for (String name : chain) {
-            element = findElementBy(startElement, By.xpath(String.format("//a[text() = '%s']", name)));
-            moveToElement(element);
-        }
-        click(element);
-    }
 }
