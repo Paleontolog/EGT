@@ -15,7 +15,7 @@ import java.util.function.Function;
 public class WebDriverHelper {
     private static final int ACCEPTABLE_PAUSE = 15;
 
-    private static final long STANDARD_WAIT = 10;
+    private static final long STANDARD_WAIT = 40;
     private static final long POLLING_INTERVAL = 500;
 
     private static final String siteUrl = "https://www.dns-shop.ru/";
@@ -28,7 +28,9 @@ public class WebDriverHelper {
     private static final Logger log = LoggerFactory.getLogger(WebDriverHelper.class);
 
     public static void open(String pageUrl) {
-        BaseSelenium.getWebDriver().get(siteUrl + pageUrl);
+        WebDriver driver = BaseSelenium.getWebDriver();
+        driver.manage().deleteAllCookies();
+        driver.get(siteUrl + pageUrl);
     }
 
     private static void highLighterMethod(WebElement element) {

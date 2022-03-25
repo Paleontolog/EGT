@@ -31,7 +31,6 @@ public class ProductPage extends AbstractPageObject {
         moveToElement(pageTop);
         moveToElement(wishListBtn);
         click(wishListBtn);
-//        waitForElementLocated(By.xpath(modalWindow));
         waitForElementLocated(By.xpath(activeWishListButton));
         sendKeys(mainWindow, Keys.ESCAPE);
     }

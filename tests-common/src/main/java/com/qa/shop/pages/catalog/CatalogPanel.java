@@ -46,8 +46,11 @@ public class CatalogPanel extends AbstractPageObject {
         return Integer.parseInt(cleanString);
     }
 
-    private boolean hasNextPage() {
-        return !btnNextPage.getAttribute("class").contains("disabled");
+    private boolean nextPage() {
+        moveToElement(btnNextPage);
+        boolean hasNextPage = !btnNextPage.getAttribute("class").contains("disabled");
+        click(btnNextPage);
+        return hasNextPage;
     }
 
 
@@ -94,9 +97,8 @@ public class CatalogPanel extends AbstractPageObject {
                             .allMatch(checkPrice::apply)
             );
             Assert.assertTrue(allPriceMatched, "Has unmatched price");
-            moveToElement(btnNextPage);
-            click(btnNextPage);
-        } while (hasNextPage());
+
+        } while (nextPage());
     }
 
     @Override

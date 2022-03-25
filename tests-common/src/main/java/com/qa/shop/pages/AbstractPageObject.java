@@ -2,7 +2,6 @@ package com.qa.shop.pages;
 
 import com.qa.shop.webdriver.BaseSelenium;
 import com.qa.shop.webdriver.WebDriverHelper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -93,6 +92,4 @@ public abstract class AbstractPageObject {
     protected  <T> T waitAndGet(Function<WebDriver, T> lambda) {
         return WebDriverHelper.waitAndGet(lambda);
     }
-
-
 }

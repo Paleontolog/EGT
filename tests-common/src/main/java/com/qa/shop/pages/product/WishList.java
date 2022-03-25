@@ -34,7 +34,7 @@ public class WishList extends AbstractPageObject {
         click(clearAllBtn);
         click(confirmDelete);
         waitPageLoad();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
     @Override
