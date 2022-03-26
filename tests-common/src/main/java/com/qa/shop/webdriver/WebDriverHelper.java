@@ -9,11 +9,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.function.Function;
 
 
 public class WebDriverHelper {
-    private static final int ACCEPTABLE_PAUSE = 15;
+    private static final int ACCEPTABLE_PAUSE = 40;
 
     private static final long STANDARD_WAIT = 40;
     private static final long POLLING_INTERVAL = 500;
@@ -121,6 +122,41 @@ public class WebDriverHelper {
                     .until((ExpectedConditions.visibilityOf(webElement)));
         } finally {
             log.debug("Waiting For Element To Be Visible");
+        }
+    }
+
+    public static Boolean isElementExist(By by) {
+        WebDriver driver = BaseSelenium.getWebDriver();
+        try {
+
+            driver.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        } catch (Exception e) {
+            log.error("There is some problem when finding element", e);
+            return false;
+        } finally {
+            log.info("Element existing checked");
+        }
+    }
+
+    public static WebElement findElement(By by) {
+        WebDriver driver = BaseSelenium.getWebDriver();
+        try {
+            waitForElementLocated(by);
+            return driver.findElement(by);
+        } catch (Exception e) {
+            throw new NoSuchContextException("There is some problem when finding element", e);
+        }
+    }
+
+    public static List<WebElement> findElementS(By by) {
+        WebDriver driver = BaseSelenium.getWebDriver();
+        try {
+            return driver.findElements(by);
+        } catch (Exception e) {
+            throw new NoSuchContextException("There is some problem when finding element", e);
         }
     }
 
