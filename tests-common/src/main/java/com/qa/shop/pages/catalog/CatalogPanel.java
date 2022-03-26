@@ -1,6 +1,7 @@
 package com.qa.shop.pages.catalog;
 
 import com.qa.shop.pages.AbstractPageObject;
+import com.qa.shop.webdriver.BaseSelenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +24,8 @@ public class CatalogPanel extends AbstractPageObject {
     private static final String productPrice = ".//div[@class='product-buy__price']";
 
     private static final Pattern onlyNumber = Pattern.compile("[^\\d]");
+
+    private static final By btnNextPage = By.xpath("//a[contains(@class, '__page-link_next')]");
 
     @FindBy(xpath = containerPath)
     private WebElement container;
@@ -54,19 +57,23 @@ public class CatalogPanel extends AbstractPageObject {
     @FindBy(xpath = catalogProducts + "//div[@data-id='product']")
     private List<WebElement> products;
 
-    @FindBy(xpath = "//a[contains(@class, '__page-link_next')]")
-    private WebElement btnNextPage;
-    
     private static Integer parsePrice(String price) {
         String cleanString = onlyNumber.matcher(price).replaceAll("");
         return Integer.parseInt(cleanString);
     }
 
     private boolean nextPage() {
-        moveToElement(btnNextPage);
-        boolean hasNextPage = !btnNextPage.getAttribute("class").contains("disabled");
-        click(btnNextPage);
-        return hasNextPage;
+        if (isElementExist(btnNextPage)) {
+            WebElement nextPage = findElement(btnNextPage);
+            moveToElement(nextPage);
+            boolean hasNextPage = !nextPage.getAttribute("class").contains("disabled");
+            if (hasNextPage) {
+                click(nextPage);
+            }
+            return hasNextPage;
+        } else {
+            return false;
+        }
     }
 
     public void goToNotebooksCatalog() {
