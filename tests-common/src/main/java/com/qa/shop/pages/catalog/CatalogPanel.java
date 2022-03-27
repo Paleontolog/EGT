@@ -48,11 +48,10 @@ public class CatalogPanel extends AbstractPageObject {
 
     private boolean nextPage() {
         if (isElementExist(btnNextPage)) {
-            WebElement nextPage = findElement(btnNextPage);
-            moveToElement(nextPage);
-            boolean hasNextPage = !nextPage.getAttribute("class").contains("disabled");
+            moveToElement(findElement(btnNextPage));
+            boolean hasNextPage = !findElement(btnNextPage).getAttribute("class").contains("disabled");
             if (hasNextPage) {
-                click(nextPage);
+                click(findElement(btnNextPage));
             }
             return hasNextPage;
         } else {

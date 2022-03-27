@@ -105,6 +105,16 @@ public class WebDriverHelper {
         }
     }
 
+    public static void waitForElementPresence(By by) {
+        WebDriver driver = BaseSelenium.getWebDriver();
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(ACCEPTABLE_PAUSE))
+                    .until(ExpectedConditions.presenceOfElementLocated(by));
+        } finally {
+            log.debug("Waiting For Element To Be Clickable");
+        }
+    }
+
     public static void waitForElementLocated(By by) {
         WebDriver driver = BaseSelenium.getWebDriver();
         try {
@@ -127,6 +137,7 @@ public class WebDriverHelper {
 
     public static Boolean isElementExist(By by) {
         WebDriver driver = BaseSelenium.getWebDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         try {
 
             driver.findElement(by);
@@ -138,23 +149,16 @@ public class WebDriverHelper {
             return false;
         } finally {
             log.info("Element existing checked");
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(STANDARD_WAIT));
         }
     }
 
     public static WebElement findElement(By by) {
         WebDriver driver = BaseSelenium.getWebDriver();
         try {
+            waitForElementPresence(by);
             waitForElementLocated(by);
             return driver.findElement(by);
-        } catch (Exception e) {
-            throw new NoSuchContextException("There is some problem when finding element", e);
-        }
-    }
-
-    public static List<WebElement> findElementS(By by) {
-        WebDriver driver = BaseSelenium.getWebDriver();
-        try {
-            return driver.findElements(by);
         } catch (Exception e) {
             throw new NoSuchContextException("There is some problem when finding element", e);
         }
