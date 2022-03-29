@@ -2,7 +2,6 @@ package com.qa.shop.tests.favourite;
 
 import com.qa.shop.pages.catalog.CatalogPanel;
 import com.qa.shop.pages.catalog.FiltersPanel;
-import com.qa.shop.pages.main.LoginForm;
 import com.qa.shop.pages.main.MainPage;
 import com.qa.shop.pages.product.ProductPage;
 import com.qa.shop.pages.product.WishList;
@@ -15,7 +14,6 @@ import org.testng.annotations.Test;
 
 public class FavouriteTest extends AbstractTest {
     private static MainPage mainPage;
-    private static LoginForm loginForm;
     private static CatalogPanel catalogPanel;
     private static FiltersPanel filtersPanel;
     private static ProductPage productPage;
@@ -24,7 +22,6 @@ public class FavouriteTest extends AbstractTest {
     @BeforeTest
     public void beforeTest() {
         mainPage = new MainPage();
-        loginForm = new LoginForm();
         catalogPanel = new CatalogPanel();
         filtersPanel = new FiltersPanel();
         productPage = new ProductPage();
@@ -42,8 +39,8 @@ public class FavouriteTest extends AbstractTest {
     }
 
     @Step("Выбрать ноутбуки 'Acer'")
-    private void chooseAcerNotebooks() {
-        filtersPanel.chooseComputers();
+    private void chooseAcerNotebooks(String currentBrand) {
+        filtersPanel.chooseComputers(currentBrand);
     }
 
     @Step("Нажимаем кнопку 'Применить'")
@@ -81,7 +78,7 @@ public class FavouriteTest extends AbstractTest {
     public void favouriteTest(String productName) {
         openMainPage();
         choseNotebooks();
-        chooseAcerNotebooks();
+        chooseAcerNotebooks("Acer");
         clickApplyFilters();
         chooseProduct(productName);
         addToFavourites();

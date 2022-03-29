@@ -2,7 +2,6 @@ package com.qa.shop.pages;
 
 import com.qa.shop.webdriver.BaseSelenium;
 import com.qa.shop.webdriver.WebDriverHelper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

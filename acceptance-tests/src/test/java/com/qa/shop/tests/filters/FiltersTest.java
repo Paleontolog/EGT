@@ -26,8 +26,8 @@ public class FiltersTest extends AbstractTest {
     public Object[][] provideData() {
 
         return new Object[][] {
-                { 10000 },
-                { 15000 }
+                { 15000 },
+                { 20000 }
         };
     }
 
