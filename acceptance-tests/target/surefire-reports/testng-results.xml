@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-03-30T16:20:43Z" name="DNS" finished-at="2022-03-30T16:21:20Z" duration-ms="37706">
+    <groups>
+    </groups>
+    <test started-at="2022-03-30T16:20:43Z" name="LoggingInTest" finished-at="2022-03-30T16:20:49Z" duration-ms="6651">
+      <class name="com.qa.shop.tests.main.LoggingInTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.qa.shop.tests.main.LoggingInTest@336880df]" started-at="2022-03-30T16:20:43Z" name="beforeTest" finished-at="2022-03-30T16:20:43Z" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="checkLogin(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.qa.shop.tests.main.LoggingInTest@336880df]" started-at="2022-03-30T16:20:43Z" name="checkLogin" description="Авторизация через логин и пароль" finished-at="2022-03-30T16:20:48Z" duration-ms="5358" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Naglui.eretick@yandex.ru]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456789a]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Пришелец-EQ76673]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkLogin -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.qa.shop.tests.main.LoggingInTest@336880df]" started-at="2022-03-30T16:20:48Z" name="afterTest" finished-at="2022-03-30T16:20:49Z" duration-ms="1150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.qa.shop.tests.main.LoggingInTest -->
+    </test> <!-- LoggingInTest -->
+    <test started-at="2022-03-30T16:20:49Z" name="WishListTest" finished-at="2022-03-30T16:21:03Z" duration-ms="13962">
+      <class name="com.qa.shop.tests.favourite.FavouriteTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.qa.shop.tests.favourite.FavouriteTest@f288c14]" started-at="2022-03-30T16:20:49Z" name="beforeTest" finished-at="2022-03-30T16:20:49Z" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="favouriteTest(java.lang.String)[pri:0, instance:com.qa.shop.tests.favourite.FavouriteTest@f288c14]" started-at="2022-03-30T16:20:49Z" name="favouriteTest" description="Добавление в избранное" finished-at="2022-03-30T16:21:01Z" duration-ms="11185" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[AN515-56-552M]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- favouriteTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.qa.shop.tests.favourite.FavouriteTest@f288c14]" started-at="2022-03-30T16:21:01Z" name="afterTest" finished-at="2022-03-30T16:21:03Z" duration-ms="2765" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.qa.shop.tests.favourite.FavouriteTest -->
+    </test> <!-- WishListTest -->
+    <test started-at="2022-03-30T16:21:03Z" name="PriceFilterTest" finished-at="2022-03-30T16:21:20Z" duration-ms="17055">
+      <class name="com.qa.shop.tests.filters.FiltersTest">
+        <test-method is-config="true" signature="initSelenium()[pri:0, instance:com.qa.shop.tests.filters.FiltersTest@6137cf6e]" started-at="2022-03-30T16:20:40Z" name="initSelenium" finished-at="2022-03-30T16:20:43Z" duration-ms="2924" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initSelenium -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.qa.shop.tests.filters.FiltersTest@6137cf6e]" started-at="2022-03-30T16:21:03Z" name="beforeTest" finished-at="2022-03-30T16:21:03Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="favouriteTest(java.lang.Integer)[pri:0, instance:com.qa.shop.tests.filters.FiltersTest@6137cf6e]" started-at="2022-03-30T16:21:03Z" name="favouriteTest" description="Проверка работы фильтров" data-provider="price" finished-at="2022-03-30T16:21:11Z" duration-ms="8095" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[15000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- favouriteTest -->
+        <test-method signature="favouriteTest(java.lang.Integer)[pri:0, instance:com.qa.shop.tests.filters.FiltersTest@6137cf6e]" started-at="2022-03-30T16:21:11Z" name="favouriteTest" description="Проверка работы фильтров" data-provider="price" finished-at="2022-03-30T16:21:20Z" duration-ms="8953" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[20000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- favouriteTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.qa.shop.tests.filters.FiltersTest@6137cf6e]" started-at="2022-03-30T16:21:20Z" name="afterTest" finished-at="2022-03-30T16:21:20Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="closeSelenium()[pri:0, instance:com.qa.shop.tests.filters.FiltersTest@6137cf6e]" started-at="2022-03-30T16:21:20Z" name="closeSelenium" finished-at="2022-03-30T16:21:21Z" duration-ms="678" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeSelenium -->
+      </class> <!-- com.qa.shop.tests.filters.FiltersTest -->
+    </test> <!-- PriceFilterTest -->
+  </suite> <!-- DNS -->
+</testng-results>

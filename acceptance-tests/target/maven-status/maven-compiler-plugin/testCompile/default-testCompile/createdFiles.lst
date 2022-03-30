@@ -1,0 +1,4 @@
+com\qa\shop\tests\AbstractTest.class
+com\qa\shop\tests\filters\FiltersTest.class
+com\qa\shop\tests\main\LoggingInTest.class
+com\qa\shop\tests\favourite\FavouriteTest.class
